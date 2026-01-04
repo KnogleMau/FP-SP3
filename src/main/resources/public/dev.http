@@ -1,0 +1,71 @@
+//Security Endpoints
+### register a user
+POST http://{{url}}/auth/register
+
+{
+    "username": "user",
+    "password": "pass12345"
+}
+
+
+### login
+POST http://{{url}}/auth/login
+
+{
+    "username": "ADMIN",
+    "password": "1234"
+}
+
+### test user token
+GET http://{{url}}/protected/user_demo
+AUTHORIZATION: Bearer {{uToken}}
+
+### test admin token
+GET http://{{url}}/protected/admin_demo
+AUTHORIZATION: Bearer {{aToken}}
+
+
+### GET All Products
+GET https://{{url}}/products
+AUTHORIZATION: Bearer {{aToken}}
+
+### GET With id
+GET https://{{url}}/products/4
+AUTHORIZATION: Bearer {{aToken}}
+
+
+### POST products
+POST https://{{url}}/products
+Content-Type: application/json
+AUTHORIZATION: Bearer {{aToken}}
+
+{
+"productName": "Gavekort",
+"price": 500,
+"productNumber": "12178362"
+}
+
+### Update a product
+PUT https://{{url}}/products/6
+Content-Type: application/json
+AUTHORIZATION: Bearer {{aToken}}
+
+{
+  "productName": "Iphone Cover",
+  "price": 199.95,
+  "productNumber": "12178362"
+}
+
+### Adds a Guide to the product
+PUT https://{{url}}//trips/6/guides/5
+AUTHORIZATION: Bearer {{aToken}}
+
+
+### Delete a Trip
+DELETE https://{{url}}/trips/6
+AUTHORIZATION: Bearer {{aToken}}
+
+
+### Get All Receipts
+GET https://{{url}}/receipts
+AUTHORIZATION: Bearer {{aToken}}
